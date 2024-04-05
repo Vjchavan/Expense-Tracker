@@ -19,7 +19,7 @@
     </div>
     <ul class="list-unstyled">
       <li>
-        <a href="#">
+        <a href="/index.html">
           <i class="fas fa-home"></i> Home
         </a>
       </li>
@@ -58,61 +58,34 @@
       <h1>Expense Tracker</h1>
     </div>
 
-    <div class="price-showcase">
-        <!-- First Card -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">$99</h5>
-            <h6 class="card-subtitle mb-2">Income</h6>
-            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Income</a>
+    <div class="expense-container">
+        <h2>Add Expense</h2>
+        <form>
+          <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount">
           </div>
-        </div>
-  
-        <!-- Second Card -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">$199</h5>
-            <h6 class="card-subtitle mb-2">Expense</h6>
-            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
+    
+          <div class="form-group">
+            <label for="type">Type of Expense:</label>
+            <select class="form-control" id="type" name="type">
+              <option value="food">Food</option>
+              <option value="transport">Transport</option>
+              <option value="housing">Housing</option>
+              <option value="entertainment">Entertainment</option>
+              <!-- Add more options as needed -->
+            </select>
           </div>
-        </div>
-      </div>
-
-      <table class="table" style="margin-top: 30px;">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Category</th>
-            <th scope="col">Expense Name</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Date</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>26-02-2024</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>26-02-2024</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>26-02-2024</td>
-          </tr>
-        </tbody>
-      </table>
-      
+    
+          <div class="form-group">
+            <label for="date">Date of Expense:</label>
+            <input type="date" class="form-control" id="date" name="date">
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-primary">Add Expense</button>
+          </div>
+        </form>
+      </div>  
   </div>
 
      
