@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.com">
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -76,6 +77,14 @@
             <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
           </div>
         </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">$99</h5>
+          <h6 class="card-subtitle mb-2">Balance</h6>
+          <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
+        </div>
+      </div>
       </div>
 
       <table class="table" style="margin-top: 30px;">
@@ -89,26 +98,12 @@
         </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>26-02-2024</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>26-02-2024</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>26-02-2024</td>
+          <tr th:each="exp : ${expense}">
+            <th th:text="${exp.expenseId}">1</th>
+            <th th:text="${exp.category}">1</th>
+            <th th:text="${exp.expenseName}">1</th>
+            <th th:text="${exp.amount}">1</th>
+            <th th:text="${exp.expenseDate}">1</th>
           </tr>
         </tbody>
       </table>

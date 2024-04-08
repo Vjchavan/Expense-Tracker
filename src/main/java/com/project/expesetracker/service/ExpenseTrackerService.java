@@ -14,6 +14,6 @@ public class ExpenseTrackerService {
     private ExpenseRepo expenseRepo;
     public List<Expense> getAllExpenses() {
         List<Expense> result = expenseRepo.findAll();
-        return null;
+        return result;
     }
 }
