@@ -72,7 +72,7 @@
         <!-- Second Card -->
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">$199</h5>
+            <h5 class="card-title" th:text="${expenseAmount}"></h5>
             <h6 class="card-subtitle mb-2">Expense</h6>
             <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
           </div>
@@ -91,6 +91,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">Id</th>
+            <th scope="col">Transaction Type</th>
             <th scope="col">Category</th>
             <th scope="col">Expense Name</th>
             <th scope="col">Amount</th>
@@ -99,7 +100,8 @@
         </thead>
         <tbody>
           <tr th:each="exp : ${expense}">
-            <th th:text="${exp.expenseId}">1</th>
+            <th th:text="${exp.id}">1</th>
+            <th th:text="${exp.transactionType}">1</th>
             <th th:text="${exp.category}">1</th>
             <th th:text="${exp.expenseName}">1</th>
             <th th:text="${exp.amount}">1</th>

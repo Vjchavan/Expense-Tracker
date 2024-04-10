@@ -1,23 +1,18 @@
 package com.project.expesetracker.model;
 
+import com.project.expesetracker.enums.TransactionType;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.util.Date;
-import java.util.List;
 
 @Data
-@Document(collection = "Expense")
-public class Expense {
-
+@Document(collection = "Transactions")
+public class Transactions {
     @Id
-    private int expenseId;
+    private int id;
     private String category;
     private String expenseName;
     private double amount;
     private String expenseDate;
-    @Field("IncomeExpenses")
-    private List<IncomeExpense> incomeExpenses;
+    private TransactionType transactionType;
 }
