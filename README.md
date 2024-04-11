@@ -11,7 +11,7 @@ The Expense Tracker is a Spring Boot application designed to help users manage t
 
 * Graphical Representation: An innovative feature of the application is its ability to visually represent financial data through dynamic graphs and charts. This allows users to gain insights into their spending habits and financial trends at a glance.
 
-Technologies Used:
+## Technologies Used:
 1. Java
 2. Spring Boot
 3. Thymeleaf
