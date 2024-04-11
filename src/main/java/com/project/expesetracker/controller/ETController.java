@@ -1,6 +1,8 @@
 package com.project.expesetracker.controller;
 
+import com.project.expesetracker.common.CalculateBalance;
 import com.project.expesetracker.common.CalculateExpense;
+import com.project.expesetracker.common.CalculateIncome;
 import com.project.expesetracker.model.Transactions;
 import com.project.expesetracker.repository.ExpenseRepo;
 import com.project.expesetracker.service.ExpenseTrackerService;
@@ -25,11 +27,18 @@ public class ETController {
     @Autowired
     private CalculateExpense calculateExpense;
 
+    @Autowired
+    private CalculateIncome calculateIncome;
+    @Autowired
+    private CalculateBalance calculateBalance;
+
     @GetMapping("/home")
     public String getAllExpenses(Model model){
         List<Transactions> expense = expenseTrackerService.getAllExpenses();
         model.addAttribute("expense",expense);
         model.addAttribute("expenseAmount",calculateExpense.calculateExpense());
+        model.addAttribute("incomeAmount",calculateIncome.calculateIncome());
+        model.addAttribute("balance",calculateBalance.calculateBalance());
         return "index";
     }
 

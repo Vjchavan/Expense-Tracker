@@ -63,7 +63,7 @@
         <!-- First Card -->
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">$99</h5>
+            <h5 class="card-title" th:text="₹+${incomeAmount}"></h5>
             <h6 class="card-subtitle mb-2">Income</h6>
             <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Income</a>
           </div>
@@ -72,7 +72,7 @@
         <!-- Second Card -->
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title" th:text="${expenseAmount}"></h5>
+            <h5 class="card-title" th:text="₹+${expenseAmount}"></h5>
             <h6 class="card-subtitle mb-2">Expense</h6>
             <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
           </div>
@@ -80,7 +80,7 @@
 
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">$99</h5>
+          <h5 class="card-title" th:text="₹+${balance}"></h5>
           <h6 class="card-subtitle mb-2">Balance</h6>
           <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
         </div>

@@ -1,5 +1,7 @@
 package com.project.expesetracker.service;
 
+import com.project.expesetracker.common.CalculateExpense;
+import com.project.expesetracker.common.CalculateIncome;
 import com.project.expesetracker.model.Transactions;
 import com.project.expesetracker.repository.ExpenseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ public class ExpenseTrackerService {
 
     @Autowired
     private ExpenseRepo expenseRepo;
+
     public List<Transactions> getAllExpenses() {
         List<Transactions> result = expenseRepo.findAll();
         return result;
