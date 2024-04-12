@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 @DependsOn({"calculateExpense","calculateIncome"})
-public interface ExpenseRepo extends MongoRepository<Transactions,Integer> {
+public interface TransactionsRepo extends MongoRepository<Transactions,Integer> {
     List<Transactions> findByTransactionType(TransactionType expense);
 }

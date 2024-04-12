@@ -88,20 +88,24 @@
       }
 
       .expense-container {
-        background-color: #17252A;
-        max-width: 30%;
-        margin: 80px auto;
+        display: flex;
+        margin-top: 40px;
+        justify-content: center;
         padding: 20px;
-        border: 1px solid #ccc;
         border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
-      .expense-container h2{
-        color: #fff;
+
+      .tform{
+        background-color: #17252A;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px ;
       }
-      .expense-container label{
-        color: #fff;
+
+      .tform label,h2{
+        color: white;
+        font-weight: bold;
       }
-      .expense-container button{
+
+      .tform button{
         align-items: center;
       }

@@ -4,15 +4,15 @@ import com.project.expesetracker.common.CalculateBalance;
 import com.project.expesetracker.common.CalculateExpense;
 import com.project.expesetracker.common.CalculateIncome;
 import com.project.expesetracker.model.Transactions;
-import com.project.expesetracker.repository.ExpenseRepo;
+import com.project.expesetracker.repository.TransactionsRepo;
 import com.project.expesetracker.service.ExpenseTrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -22,7 +22,7 @@ public class ETController {
     private ExpenseTrackerService expenseTrackerService;
 
     @Autowired
-    private ExpenseRepo expenseRepo;
+    private TransactionsRepo transactionsRepo;
 
     @Autowired
     private CalculateExpense calculateExpense;
@@ -42,10 +42,21 @@ public class ETController {
         return "index";
     }
 
-    @PostMapping("/")
-    public String saveData(@RequestBody Transactions expense){
-        expenseRepo.save(expense);
-        System.out.println("Success");
-        return "tp";
+
+    @GetMapping("/income")
+    public String showIncomePage() {
+        return "income"; // Renders expense.hetml template
+    }
+
+    @GetMapping("/expense")
+    public String showExpensePage() {
+        return "expense"; // Renders expense.html template
+    }
+
+    @PostMapping("/register")
+    public String addTransaction(@ModelAttribute Transactions transactions){
+        System.out.println("Date:"+transactions.getExpenseDate());
+        expenseTrackerService.saveTransaction(transactions);
+        return "redirect:/home";
     }
 }

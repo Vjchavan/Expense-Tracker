@@ -25,8 +25,8 @@
         </a>
       </li>
       <li>
-        <a href="/add_expense.html">
-          <i class="fas fa-calculator"></i> Add Expense
+        <a th:href="@{/income}">
+          <i class="fas fa-calculator"></i> Add Transaction
         </a>
       </li>
       <li>
@@ -65,7 +65,7 @@
           <div class="card-body">
             <h5 class="card-title" th:text="₹+${incomeAmount}"></h5>
             <h6 class="card-subtitle mb-2">Income</h6>
-            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Income</a>
+            <a th:href="@{/income}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Income</a>
           </div>
         </div>
   
@@ -74,15 +74,15 @@
           <div class="card-body">
             <h5 class="card-title" th:text="₹+${expenseAmount}"></h5>
             <h6 class="card-subtitle mb-2">Expense</h6>
-            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
+            <a th:href="@{/expense}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
           </div>
         </div>
 
       <div class="card">
         <div class="card-body">
           <h5 class="card-title" th:text="₹+${balance}"></h5>
-          <h6 class="card-subtitle mb-2">Balance</h6>
-          <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
+          <h6 class="card-subtitle mb-2">Balance Amount</h6>
+          <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-pressed="true">Balance</a>
         </div>
       </div>
       </div>
