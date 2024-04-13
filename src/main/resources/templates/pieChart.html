@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <img src="/logo.jpg" alt="">
+        <a href="#"><li><h3 class="navbar-brand">Dashboard</h3></li></a>
+    </div>
+    <ul class="list-unstyled">
+        <li>
+            <a href="#">
+                <i class="fas fa-home"></i> Home
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/income}">
+                <i class="fas fa-calculator"></i> Add Transaction
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/analytics}">
+                <i class="fas fa-chart-bar"></i> Analytics
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-user"></i> Profile
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-headset"></i> Support
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-question-circle"></i> Help
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<div class="main-content">
+
+    <div class="main-header">
+        <h1>Expense Tracker</h1>
+    </div>
+
+    <div class="pie-container" id="container">
+
+        <div class="income-div" id="income">
+        </div>
+
+        <div class="expense-div" id="expense">
+        </div>
+    </div>
+</div>
+
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).ready(function() {
+        var expensecategory = /*[[${expensecategory}]]*/ [];
+        var expense = /*[[${expense}]]*/ [];
+
+        var chartOptions = {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Expense Breakdown'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: 'Expense',
+                colorByPoint: true,
+                data: []
+            }]
+        };
+
+        // Prepare data for the chart
+        for (var i = 0; i < expensecategory.length; i++) {
+            chartOptions.series[0].data.push({
+                name: expensecategory[i],
+                y: expense[i]
+            });
+        }
+
+        // Render the chart
+        $('#expense').highcharts(chartOptions);
+    });
+    /*]]>*/
+</script>
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).ready(function() {
+        var incomecategory = /*[[${incomecategory}]]*/ [];
+        var income = /*[[${income}]]*/ [];
+
+        var chartOptions = {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Income Breakdown'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: 'Income',
+                colorByPoint: true,
+                data: []
+            }]
+        };
+
+        // Prepare data for the chart
+        for (var i = 0; i < incomecategory.length; i++) {
+            chartOptions.series[0].data.push({
+                name: incomecategory[i],
+                y: income[i]
+            });
+        }
+
+        // Render the chart
+        $('#income').highcharts(chartOptions);
+    });
+    /*]]>*/
+</script>
+</body>
+</html>

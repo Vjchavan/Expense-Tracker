@@ -63,7 +63,7 @@
 
     <div class="tform" style="width: 30rem; padding: 25px;">
       <h2>Expense Transaction Form</h2><br>
-      <form>
+      <form th:action="@{/register}" method="post">
         <div class="form-group">
           <label for="transactionType">Transaction Type</label>
           <select class="form-control" id="transactionType" name="transactionType">
@@ -73,7 +73,7 @@
         </div>
         <div class="form-group">
           <label for="category">Category</label>
-          <select class="form-control" id="transactionType" name="transactionType">
+          <select class="form-control" id="category" name="category">
             <option value="Select">Select Category</option>
             <option value="Home">Home Utilities</option>
             <option value="Personal">Personal</option>
@@ -95,8 +95,8 @@
           <input type="number" class="form-control" id="amount" placeholder="Enter Amount" name="amount">
         </div>
         <div class="form-group">
-          <label for="date">Date</label>
-          <input type="date" class="form-control" id="date" name="date">
+          <label for="expenseDate">Date</label>
+          <input type="date" class="form-control" id="expenseDate" name="expenseDate">
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-primary" >Submit</button>
