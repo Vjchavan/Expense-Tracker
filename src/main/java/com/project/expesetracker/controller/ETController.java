@@ -3,6 +3,7 @@ package com.project.expesetracker.controller;
 import com.project.expesetracker.common.CalculateBalance;
 import com.project.expesetracker.common.CalculateExpense;
 import com.project.expesetracker.common.CalculateIncome;
+import com.project.expesetracker.enums.TransactionType;
 import com.project.expesetracker.model.Transactions;
 import com.project.expesetracker.repository.TransactionsRepo;
 import com.project.expesetracker.service.ExpenseTrackerService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ETController {
@@ -45,12 +47,26 @@ public class ETController {
 
     @GetMapping("/income")
     public String showIncomePage() {
-        return "income"; // Renders expense.hetml template
+        return "income";
     }
 
     @GetMapping("/expense")
     public String showExpensePage() {
-        return "expense"; // Renders expense.html template
+        return "expense";
+    }
+
+    @GetMapping("/analytics")
+    public String showAnalyticsPage(Model model) {
+        List<Transactions> transactions = transactionsRepo.findAll();
+        List<String> expensecategory = transactions.stream().filter(x->x.getTransactionType().equals(TransactionType.EXPENSE)).map(x-> x.getCategory()).distinct().collect(Collectors.toList());
+        List<String> incomecategory = transactions.stream().filter(x->x.getTransactionType().equals(TransactionType.INCOME)).map(x-> x.getCategory()).distinct().collect(Collectors.toList());
+        List<Double> expense = transactions.stream().filter(x->x.getTransactionType().equals(TransactionType.EXPENSE)).map(x->x.getAmount()).collect(Collectors.toList());
+        List<Double> income = transactions.stream().filter(x->x.getTransactionType().equals(TransactionType.INCOME)).map(x->x.getAmount()).collect(Collectors.toList());
+        model.addAttribute("expensecategory",expensecategory);
+        model.addAttribute("incomecategory",incomecategory);
+        model.addAttribute("expense",expense);
+        model.addAttribute("income",income);
+        return "pieChart";
     }
 
     @PostMapping("/register")
