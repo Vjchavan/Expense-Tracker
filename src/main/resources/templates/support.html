@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .contact-card {
+            background-color: #dbdcdd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+        .card-text {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-size: 1.2rem;
+            padding: 0.5rem 2rem;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <img src="/logo.jpg" alt="">
+        <a href="#"><li><h3 class="navbar-brand">Dashboard</h3></li></a>
+    </div>
+    <ol class="list-unstyled">
+        <li>
+            <a th:href="@{/home}">
+                <i class="fas fa-home"></i> Home
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/income}">
+                <i class="fas fa-calculator"></i> Add Transaction
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/analytics}">
+                <i class="fas fa-chart-bar"></i> Analytics
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/support}">
+                <i class="fas fa-headset"></i> Support
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/help}">
+                <i class="fas fa-question-circle"></i> Help
+            </a>
+        </li>
+    </ol>
+</nav>
+
+<div class="main-content">
+
+    <div class="main-header">
+        <h1>Expense Tracker</h1>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mb-4" style="color: black;">Contact Me</h2>
+                <div class="contact-card">
+                    <h5 class="card-title">Email</h5>
+                    <p class="card-text">Vjchavan582000@gmail.com</p>
+                    <h5 class="card-title">Mobile No</h5>
+                    <p class="card-text">+91 9689756247</p>
+                    <a href="#" class="btn btn-primary btn-block">Send Message</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

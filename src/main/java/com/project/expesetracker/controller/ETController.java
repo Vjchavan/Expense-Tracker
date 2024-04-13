@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -63,6 +61,11 @@ public class ETController {
         return "help";
     }
 
+    @GetMapping("/support")
+    public String showSupportPage() {
+        return "support";
+    }
+
     @GetMapping("/analytics")
     public String showAnalyticsPage(Model model) {
         List<Transactions> transactions = transactionsRepo.findAll();
@@ -79,7 +82,6 @@ public class ETController {
 
     @PostMapping("/register")
     public String addTransaction(@ModelAttribute Transactions transactions){
-        System.out.println("Date:"+transactions.getExpenseDate());
         expenseTrackerService.saveTransaction(transactions);
         return "redirect:/home";
     }
