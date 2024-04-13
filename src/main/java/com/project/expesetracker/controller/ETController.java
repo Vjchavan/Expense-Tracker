@@ -12,9 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -55,6 +58,11 @@ public class ETController {
         return "expense";
     }
 
+    @GetMapping("/help")
+    public String showHelpPage() {
+        return "help";
+    }
+
     @GetMapping("/analytics")
     public String showAnalyticsPage(Model model) {
         List<Transactions> transactions = transactionsRepo.findAll();
@@ -75,4 +83,24 @@ public class ETController {
         expenseTrackerService.saveTransaction(transactions);
         return "redirect:/home";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editTransaction(@PathVariable long id,Model model){
+        Optional<Transactions> transactions = transactionsRepo.findById((int)id);
+        model.addAttribute("transactions",transactions);
+        return "edit";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable long id,@ModelAttribute Transactions transactions){
+        expenseTrackerService.updateTransaction(id,transactions);
+        return "redirect:/home";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteTransaction(@PathVariable long id,Model model){
+        expenseTrackerService.deleteTransaction(id);
+        return "redirect:/home";
+    }
+
 }

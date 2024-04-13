@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <img src="/logo.jpg" alt="">
+        <a href="#"><li><h3 class="navbar-brand">Dashboard</h3></li></a>
+    </div>
+    <ol class="list-unstyled">
+        <li>
+            <a href="#">
+                <i class="fas fa-home"></i> Home
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/income}">
+                <i class="fas fa-calculator"></i> Add Transaction
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/analytics}">
+                <i class="fas fa-chart-bar"></i> Analytics
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-user"></i> Profile
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-headset"></i> Support
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-question-circle"></i> Help
+            </a>
+        </li>
+    </ol>
+</nav>
+
+<div class="help-main-content">
+
+    <div class="main-header">
+        <h1>Expense Tracker</h1>
+    </div>
+
+    <h2>Questions and Answers</h2>
+
+    <div class="qna-box">
+
+        <div class="qna">
+            <ol>
+                <li><h4>What technologies are you using for your Expense Tracker project?</h4><ul>
+                    <li><h6>I'm using Spring Boot for the backend, MongoDB for data storage, Thymeleaf for the UI, and HighCharts API for generating analytics charts.</h6></li>
+                </ul></li>
+
+                <br>
+
+                <li><h4>What features does your Expense Tracker offer?</h4><ul>
+                    <li><h6>The Expense Tracker allows users to add income and expenses, including category, amount, and date. It provides real-time data fetching from MongoDB to the UI, enabling seamless transaction management. Additionally, it offers an analytics feature with pie charts to visualize expenses and income.</h6></li>
+                </ul></li>
+
+                <br>
+
+                <li><h4>How does your application handle CRUD operations for transactions?</h4><ul>
+                    <li><h6>CRUD operations (Create, Read, Update, Delete) are seamlessly integrated into the Expense Tracker. Users can add, update, and delete transactions, allowing for efficient management of financial data.</h6></li>
+                </ul></li>
+
+                <br>
+
+                <li><h4>Can you elaborate on the analytics feature of your Expense Tracker?</h4><ul>
+                    <li><h6>The analytics feature of the Expense Tracker utilizes HighCharts API to generate interactive pie charts. These charts provide users with insightfol visualizations of their expenses and income, enabling them to track spending habits and make informed financial decisions.</h6></li>
+                </ul></li>
+
+                <br>
+
+                <li><h4>How does real-time data fetching work in your application?</h4><ul>
+                    <li><h6>Real-time data fetching is achieved by fetching data directly from MongoDB to the UI. This ensures that users always have access to the latest financial information without the need for manual updates or refreshing the page.</h6></li>
+                </ul></li>
+
+                <br>
+
+                <li><h4>What motivated you to develop an Expense Tracker with these specific features?</h4><ul>
+                    <li><h6>I developed the Expense Tracker to provide users with a comprehensive tool for managing their finances. By incorporating features such as income and expense tracking, category management, real-time data fetching, and analytics, I aim to simplify financial management and empower users to achieve their financial goals.</h6></li>
+                </ul></li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

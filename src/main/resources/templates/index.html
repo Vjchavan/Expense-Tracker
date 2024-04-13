@@ -12,111 +12,112 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <!-- Sidebar -->
-  <nav class="sidebar">
-    <div class="sidebar-header">
-        <img src="/logo.jpg" alt="">
-        <a href="#"><li><h3 class="navbar-brand">Dashboard</h3></li></a>
-    </div>
-    <ul class="list-unstyled">
-      <li>
-        <a href="#">
-          <i class="fas fa-home"></i> Home
-        </a>
-      </li>
-      <li>
-        <a th:href="@{/income}">
-          <i class="fas fa-calculator"></i> Add Transaction
-        </a>
-      </li>
-      <li>
-        <a th:href="@{/analytics}">
-          <i class="fas fa-chart-bar"></i> Analytics
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-user"></i> Profile
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-headset"></i> Support
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-question-circle"></i> Help
-        </a>
-      </li>
-    </ul>
-  </nav>
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <img src="/logo.jpg" alt="">
+    <a href="#"><li><h3 class="navbar-brand">Dashboard</h3></li></a>
+  </div>
+  <ul class="list-unstyled">
+    <li>
+      <a href="#">
+        <i class="fas fa-home"></i> Home
+      </a>
+    </li>
+    <li>
+      <a th:href="@{/income}">
+        <i class="fas fa-calculator"></i> Add Transaction
+      </a>
+    </li>
+    <li>
+      <a th:href="@{/analytics}">
+        <i class="fas fa-chart-bar"></i> Analytics
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-headset"></i> Support
+      </a>
+    </li>
+    <li>
+      <a th:href="@{/help}">
+        <i class="fas fa-question-circle"></i> Help
+      </a>
+    </li>
+  </ul>
+</nav>
 
-  <!-- Main Content -->
-  <div class="main-content">
+<!-- Main Content -->
+<div class="main-content">
 
-    <div class="main-header">
-      <h1>Expense Tracker</h1>
-    </div>
-
-    <div class="price-showcase">
-        <!-- First Card -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title" th:text="₹+${incomeAmount}"></h5>
-            <h6 class="card-subtitle mb-2">Income</h6>
-            <a th:href="@{/income}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Income</a>
-          </div>
-        </div>
-  
-        <!-- Second Card -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title" th:text="₹+${expenseAmount}"></h5>
-            <h6 class="card-subtitle mb-2">Expense</h6>
-            <a th:href="@{/expense}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
-          </div>
-        </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title" th:text="₹+${balance}"></h5>
-          <h6 class="card-subtitle mb-2">Balance Amount</h6>
-          <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-pressed="true">Balance</a>
-        </div>
-      </div>
-      </div>
-
-      <table class="table" style="margin-top: 30px;">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Transaction Type</th>
-            <th scope="col">Category</th>
-            <th scope="col">Expense Name</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Date</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr th:each="exp : ${expense}">
-            <th th:text="${exp.id}">1</th>
-            <th th:text="${exp.transactionType}">1</th>
-            <th th:text="${exp.category}">1</th>
-            <th th:text="${exp.expenseName}">1</th>
-            <th th:text="${exp.amount}">1</th>
-            <th th:text="${#dates.format(exp.expenseDate,'dd-MM-yyyy')}">1</th>
-          </tr>
-        </tbody>
-      </table>
-      
+  <div class="main-header">
+    <h1>Expense Tracker</h1>
   </div>
 
-     
+  <div class="price-showcase">
+    <!-- First Card -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" th:text="₹+${incomeAmount}"></h5>
+        <h6 class="card-subtitle mb-2">Income</h6>
+        <a th:href="@{/income}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Income</a>
+      </div>
+    </div>
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Second Card -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" th:text="₹+${expenseAmount}"></h5>
+        <h6 class="card-subtitle mb-2">Expense</h6>
+        <a th:href="@{/expense}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Expense</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" th:text="₹+${balance}"></h5>
+        <h6 class="card-subtitle mb-2">Balance Amount</h6>
+        <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-pressed="true">Balance</a>
+      </div>
+    </div>
+  </div>
+
+  <table class="table" style="margin-top: 30px;">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Transaction Type</th>
+      <th scope="col">Category</th>
+      <th scope="col">Expense Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="exp : ${expense}">
+      <th th:text="${exp.id}">1</th>
+      <th th:text="${exp.transactionType}">1</th>
+      <th th:text="${exp.category}">1</th>
+      <th th:text="${exp.expenseName}">1</th>
+      <th th:text="${exp.amount}">1</th>
+      <th th:text="${#dates.format(exp.expenseDate,'dd-MM-yyyy')}">1</th>
+      <th>
+        <a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${exp.id})}">Edit</a>
+        <a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${exp.id})}">Delete</a>
+
+      </th>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

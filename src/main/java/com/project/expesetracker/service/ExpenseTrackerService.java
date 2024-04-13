@@ -40,4 +40,18 @@ public class ExpenseTrackerService {
                 DatabaseSequence.class);
         return !Objects.isNull(counter) ? counter.getSeq() : 1;
     }
+
+    public void deleteTransaction(long id) {
+        transactionsRepo.deleteById((int)id);
+    }
+    public void updateTransaction(long id, Transactions transactions) {
+        Transactions updatedTransaction = new Transactions();
+        updatedTransaction.setId(transactions.getId());
+        updatedTransaction.setTransactionType(transactions.getTransactionType());
+        updatedTransaction.setCategory(transactions.getCategory());
+        updatedTransaction.setExpenseName(transactions.getExpenseName());
+        updatedTransaction.setAmount(transactions.getAmount());
+        updatedTransaction.setExpenseDate(transactions.getExpenseDate());
+        transactionsRepo.save(updatedTransaction);
+    }
 }

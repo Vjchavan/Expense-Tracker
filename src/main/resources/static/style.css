@@ -31,7 +31,7 @@ body {
     list-style: none;
 }
 .list-unstyled li {
-  padding: 20px 20px;
+  padding: 40px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .list-unstyled li:last-child {
@@ -40,6 +40,11 @@ body {
 .list-unstyled li a {
   color: #fff;
   text-decoration: none;
+  font-size: 1.3em;
+}
+
+.list-unstyled li a i {
+  margin-right: 10px;
 }
 .list-unstyled li:hover {
   background-color: rgba(255, 255, 255, 0.1);
@@ -129,4 +134,29 @@ body {
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 5px 5px 5px;
+  }
+
+  .qna-box{
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+  }
+
+  .help-main-content h2{
+    color: black;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .qna-box h4,h6{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .qna{
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 60%;
+    display: flex;
+    align-self: center;
+    background-color: #FAECE2;
   }
