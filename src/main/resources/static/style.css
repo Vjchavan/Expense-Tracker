@@ -1,7 +1,9 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #b7e1df;
+  margin: 0; /* Remove default body margin */
 }
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -9,34 +11,40 @@ body {
   height: 100%;
   width: 250px;
   background-color: #17252A;
-  padding-top: 20px; /* Adjust according to your navbar height */
   color: #fff;
   overflow-y: auto;
 }
+
 .sidebar-header {
-    display: flex;
+  display: flex;
   padding: 20px;
 }
-.sidebar-header img{
-    width: 45px;
-    height: 45px;
-    padding: 5px;
-    border-radius: 50%;
+
+.sidebar-header img {
+  width: 45px;
+  height: 45px;
+  padding: 5px;
+  border-radius: 50%;
 }
+
 .sidebar-header a {
   margin-bottom: 0;
   color: white;
 }
-.sidebar-header li{
-    list-style: none;
+
+.sidebar-header li {
+  list-style: none;
 }
+
 .list-unstyled li {
-  padding: 40px 20px;
+  padding: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .list-unstyled li:last-child {
   border-bottom: none;
 }
+
 .list-unstyled li a {
   color: #fff;
   text-decoration: none;
@@ -46,117 +54,198 @@ body {
 .list-unstyled li a i {
   margin-right: 10px;
 }
+
 .list-unstyled li:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 .main-content {
-  margin-left: 250px; /* Adjust according to your sidebar width */
+  margin-left: 250px;
   padding: 20px;
 }
+
 .navbar-brand {
   font-size: 1.5rem;
 }
+
 .navbar-nav .nav-link {
   color: #fff;
   padding: 5px 10px;
   border-radius: 3px;
   transition: background-color 0.3s ease;
 }
+
 .navbar-nav .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.main-header{
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+.main-header {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 .price-showcase {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
-  }
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.card {
+  width: 100%; /* Adjusted width for responsiveness */
+  max-width: 300px; /* Added maximum width for better responsiveness */
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 5px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px; /* Added margin for better spacing */
+}
+
+.card-subtitle {
+  font-size: 1.5rem;
+  color: #6c757d;
+  margin-bottom: 15px; /* Added margin for better spacing */
+}
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 576px) {
   .card {
-    width: 25%;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 5px 5px 5px;
+    max-width: 100%; /* Adjusted maximum width for smaller screens */
   }
-  .card-body {
-    text-align: center;
-  }
-  .card-title {
-    font-size: 2rem;
-    color: #007bff; /* Bootstrap primary color */
-  }
-  .card-subtitle {
-    font-size: 1.5rem;
-    color: #6c757d; /* Bootstrap secondary color */
-  }
+}
 
-  .expense-container {
-    display: flex;
-    margin-top: 40px;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 5px;
-  }
+.expense-container {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+}
 
-  .tform{
-    background-color: #17252A;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px ;
-  }
+.tform {
+  background-color: #17252A;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px;
+}
 
-  .tform label,h2{
-    color: white;
-    font-weight: bold;
-  }
+.tform label,
+h2 {
+  color: white;
+  font-weight: bold;
+}
 
-  .tform button{
-    align-items: center;
+.tform button {
+  align-items: center;
+}
+
+.pie-container {
+  display: flex;
+  margin-top: 10%;
+}
+
+.income-div,
+.expense-div {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px;
+}
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 576px) {
+.pie-container{
+    display: block;
+    margin-top: 10%;
+}
+  .income-div,
+  .expense-div {
+    max-width: 100%; /* Adjusted maximum width for smaller screens */
+    margin-top: 10%
+  }
+}
+
+.qna-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.help-main-content h2 {
+  color: black;
+  text-align: center;
+  margin: 20px;
+}
+
+.qna-box h4,
+h6 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.qna {
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-self: center;
+  background-color: #FAECE2;
+}
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+  .main-content {
+    margin-left: 200px;
+  }
+  .price-showcase{
+    margin:5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 150px;
+  }
+  .main-content {
+    margin-left: 150px;
+  }
+  .price-showcase{
+      margin:5%;
+    }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+  .main-content {
+    margin-left: 0;
   }
 
   .pie-container{
-    display:flex;
-    margin-top:10%;
+      display: block;
+      margin-top: 10%;
   }
+    .income-div,
+    .expense-div {
+      max-width: 100%; /* Adjusted maximum width for smaller screens */
+      margin-top: 10%
+    }
 
-  .income-div{
-    width: 650px;
-    height: 500px;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px;
-  }
-
-  .expense-div{
-    width: 650px;
-    height: 500px;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px;
-  }
-
-  .qna-box{
-    display: flex;
-    justify-content: center; /* Horizontally center the content */
-    align-items: center;
-  }
-
-  .help-main-content h2{
-    color: black;
-    text-align: center;
-    margin: 20px;
-  }
-
-  .qna-box h4,h6{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-
-  .qna{
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 60%;
-    display: flex;
-    align-self: center;
-    background-color: #FAECE2;
-  }
+}
